@@ -20,7 +20,7 @@ Must have a C++ compiler installed on your system
 
 ### Steps
 1. Open a terminal in the directory where the file shuffle.cpp is saved
-2. Compile the progrma using:
+2. Compile the program using:
 ```bash
 g++ -o shuffle shuffle.cpp
 ```
@@ -41,3 +41,9 @@ O(n)
 ### Space Complexity:
 O(n)
 - When list/vector or size n is created to store integers from 1 to n
+
+## References
+These resources helped me implement the shuffle logic 
+- https://www.geeksforgeeks.org/dsa/shuffle-a-given-array-using-fisher-yates-shuffle-algorithm/
+- https://www.geeksforgeeks.org/dsa/linear-congruence-method-for-generating-pseudo-random-numbers/
+- https://en.wikipedia.org/wiki/Linear_congruential_generator
