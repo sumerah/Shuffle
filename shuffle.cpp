@@ -47,7 +47,10 @@ int main(){
         s = LCG_random(s);
         int j = s%(i+1);
         // swap shuffled[i] with the element at random index
-        std::swap(shuffled[i], shuffled[j]);
+        //std::swap(shuffled[i], shuffled[j]);
+        int t = shuffled[i];
+        shuffled[i]=shuffled[j];
+        shuffled[j]=t;
     }
 
 
