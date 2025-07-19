@@ -1,9 +1,15 @@
 #include <iostream>
 #include <vector>
 #include <limits>
-#include <cstdlib>
 #include <ctime>
-#include <algorithm> //to use the shuffle function
+
+// linear congruential generator to produce pseudo random numbers
+unsigned int LCG_random(unsigned int &seed){
+    //commmonly used parameters sourced from Wikipedia: https://en.wikipedia.org/wiki/Linear_congruential_generator
+    const unsigned int a = 1664525; //multiplier
+    const unsigned int c = 1013904223; //increment
+    return (a*seed+c); //same as (a*seed+c)%2^32
+}
 
 
 int main(){
@@ -35,9 +41,14 @@ int main(){
     for (int i=0;i<n;i++){
         shuffled[i]=i+1;
     }
-    // randomly shuffle the list of integers 1...n
-    std::srand(static_cast<unsigned int>(std::time(0))); //seed random number generator to truly randomize
-    std::random_shuffle(shuffled.begin(),shuffled.end());
+    // randomly shuffle the list of integers 1...n using fisher yates algorithm
+    unsigned int s = static_cast<unsigned int>(time(0));
+    for(int i=n-1;i>0;i--){
+        s = LCG_random(s);
+        int j = s%(i+1);
+        // swap shuffled[i] with the element at random index
+        std::swap(shuffled[i], shuffled[j]);
+    }
 
 
     // output the integers 1..n after shuffling

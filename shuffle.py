@@ -34,7 +34,7 @@ def main():
     # randomly shuffle the list of integers from 1 to n using fisher yates algorithm
     s= int(time.time()*1000000) & 0xffffffff #convert time to microseconds then convert to integer then mask to 32 bits
     for i in range(n-1,0,-1):
-        s = LCG_random(seed) 
+        s = LCG_random(s) 
         j =s%(i+1)
         # swap shuffled[i] with the element at random index
         shuffled[i], shuffled[j] = shuffled[j], shuffled[i]
