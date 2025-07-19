@@ -22,7 +22,7 @@ int main(){
         std::cin>>n;
         // if input is not an integer
         if (std::cin.fail()){
-            std::cout<<"Invalid input! Please enter a positive integer (1,2,3,...)";
+            std::cout<<"Invalid input! Please enter a positive integer (1,2,3,...)\n";
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
         }
